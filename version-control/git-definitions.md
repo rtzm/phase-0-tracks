@@ -17,3 +17,5 @@ A commit is like a save point that you can take the directory back to if somethi
 * What is a merge conflict?
 
 A merge conflict is when there are two changes that mutually conflict with each other, and the branch can't be merged back into the master. This might happen if the branch contains a change to a line of code that was changed in another branch. You then have to go in and select which version of that line you want to keep.
+
+Here's a new line of new information.
