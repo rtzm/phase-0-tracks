@@ -4,32 +4,66 @@
 	<title>Table practice</title>
 </head>
 <body>
-<table>
-	<tr>
-		<th>Things I see from my window</th>
-		<th>Color</th>
-		<th>Alive?</th>
-	</tr>
-	<tr>
-		<td>Tree</td>
-		<td>Brown</td>
-		<td>Yes</td>
-	</tr>
-	<tr>
-		<td>Dumpster</td>
-		<td>Brown</td>
-		<td>No</td>
-	</tr>
-	<tr>
-		<td>Sky</td>
-		<td>Gray</td>
-		<td>No</td>
-	</tr>
-	<tr>
-		<td>Neighbor's house's roof</td>
-		<td>Yellow</td>
-		<td>No</td>
-	</tr>
-</table>
+	<table border="1">
+		<tr>
+			<th>Things I see from my window</th>
+			<th>Color</th>
+			<th>Alive?</th>
+			<th>Is wooden?</th>
+		</tr>
+		<tr>
+			<td>Tree</td>
+			<td>Brown</td>
+			<td>Yes</td>
+			<td>Yes</td>
+		</tr>
+		<tr>
+			<td>Dumpster</td>
+			<td>Brown</td>
+			<td>No</td>
+			<td>No</td>
+		</tr>
+		<tr>
+			<td>Sky</td>
+			<td>Gray</td>
+			<td>No</td>
+			<td>No</td>
+		</tr>
+		<tr>
+			<td>Neighbor's house's roof</td>
+			<td>Yellow</td>
+			<td>No</td>
+			<td>Yes (for this table's purposes)</td>
+		</tr>
+	</table>
+	<p>Here's that same table but merging some duplicate rows:</p>
+	<table border="1">
+		<tr>
+			<th>Things I see from my window</th>
+			<th>Color</th>
+			<th>Alive?</th>
+			<th>Is wooden?</th>
+		</tr>
+		<tr>
+			<td>Tree</td>
+			<td rowspan="2">Brown</td>
+			<td colspan="2">Yes</td>
+		</tr>
+		<tr>
+			<td>Dumpster</td>
+			<td rowspan="3">No</td>
+			<td>No</td>
+		</tr>
+		<tr>
+			<td>Sky</td>
+			<td>Gray</td>
+			<td>No</td>
+		</tr>
+		<tr>
+			<td>Neighbor's house's roof</td>
+			<td>Yellow</td>
+			<td>Yes</td>
+		</tr>
+	</table>
 </body>
 </html>
