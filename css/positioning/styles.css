@@ -1,0 +1,23 @@
+img {
+	margin: auto;
+	display: block;
+}
+
+.octopus {
+	margin-top: 50px;
+}
+
+.wearable {
+	z-index: 2;
+	position: relative;
+}
+
+.hat {
+	bottom: 338px;
+	left: 15px;
+}
+
+.glasses {
+	bottom: 356px;
+	left: 5px;
+}
