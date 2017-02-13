@@ -1,0 +1,67 @@
+If current floor is higher than desired floor
+	- Press call button pointing down
+Otherwise
+	- Press call button pointing up
+Wait until elevator doors open
+When doors open, check if elevator is empty
+If someone is in the elevator, say hello.
+Walk in to just past the door, and turn around.
+Look right until find control panel (if none found, do same on left)
+For each button:
+	- If number is equal to number for desired floor
+		- Click button, and stop looking through buttons
+	- Otherwise
+		- Move to next button
+Wait until doors open
+Every time doors open
+	- Check if this is the right floor
+	- If this is the right floor:
+		- Exit elevator
+	- Otherwise, wait until next time doors open
+
+
+Algorithm for making coffee
+===========================
+
+Enter kitchen
+Open coffee grinder
+Open bag of coffee beans
+Grab bean scooper
+2 times
+	- Check if bean scooper is in beans
+		- Otherwise, move bean scooper into beans
+	- Scoop beans
+	- Pour bean scooper into coffee grinder
+	- Put bean scooper back in bag
+Close bag of beans
+Close coffee grinder
+Press coffee grinder on
+Hold for 10 seconds
+Release coffee grinder on-button
+Open coffee grinder
+Put filter in pourover
+Pour grounds in filter in pourover
+Close coffee grinder
+Put pourover with filter and grounds on top of mug
+Until caffeinated:
+	- Go to electric kettle
+	- Pick up electric kettle
+	- Go to sink
+	- Open electric kettle with button
+	- Turn on water
+	- Place electric kettle opening under water
+	- Wait until water is up to little line that says 2 cups
+	- Turn off water
+	- Close electric kettle
+	- Bring electric kettle back to base
+	- Place electric kettle on base
+	- Turn on electric kettle
+	- Wait until electric kettle is finished
+	- Pick up electric kettle
+	- Until mug fullness is equal to or more than 85%
+		- Fill pourover half-way with water
+		- Wait until drained
+		- Check water level in mug
+	- Replace electric kettle
+	- Drink coffee
+	- Wait and check if caffeinated
