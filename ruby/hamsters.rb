@@ -2,8 +2,15 @@ puts "Gather Data on Hamsters"
 puts "Please answer the following questions:"
 puts "Enter the Hamster's name:"
 hamster_name = gets.chomp
-puts "Enter the volume level (level of squeakiness):"
+puts "Enter the volume level (level of squeakiness, 1-10):"
 volume = gets.chomp.to_i
+if volume < 1
+	puts "Using volume of 1, since you gave a volume below 1"
+	volume = 1
+elsif volume > 10
+	puts "Using volume of 10, since you gave a volume above 10"
+	volume = 10
+end
 puts "Enter the fur color:"
 fur_color =gets.chomp
 puts "Is it adoptable (y/n):"
