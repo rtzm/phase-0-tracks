@@ -1,0 +1,40 @@
+/*
+light blue: #7C90B2
+reddish: #FF5337
+darker light blue: #4A8DFF
+greenish: #9ECC27
+*/
+
+a {
+  color: #9ECC27;
+}
+body {
+  max-width: 85%;
+  margin: 0 auto;
+  background-image: url("bird.jpg");
+  color: #333;
+  font-family: "Georgia", serif;
+}
+header, footer {
+  background-color: #FF5337;
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #FF5337;
+}
+
+.column-1 {
+  background-color: #7C90B2;
+  max-width: 65%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.column-2 {
+  background-color: #4A8DFF;
+  max-width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
