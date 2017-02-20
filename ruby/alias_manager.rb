@@ -15,7 +15,7 @@
 
 def encrypt_name(full_name)
 	names = full_name.split(" ").reverse!
-	names = names.map do |name|
+	names.map! do |name|
 		code_name = ""
 		name.downcase!
 		ltrs = name.chars
