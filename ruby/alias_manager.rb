@@ -48,13 +48,22 @@ end
 # USER INTERFACE
 quit = false
 
+codename_database = []
+
 until quit
 	print "Provide a name (quit with 'quit'): "
 	input = gets.chomp
 	if input.downcase == "quit"
 		quit = true
+		puts "Quitting..."
+		# print data structure here
+		codename_database.each do |agent| 
+			puts "Agent #{agent[:realname]}, A.K.A #{agent[:codename]}!" 
+		end
 		next
 	else
-		puts encrypt_name(input)
+		output = encrypt_name(input)
+		puts output
+		codename_database << { realname: input, codename: output }
 	end
 end
