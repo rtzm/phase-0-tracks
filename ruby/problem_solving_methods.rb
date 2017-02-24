@@ -44,38 +44,34 @@ def fib(int)
 end
 puts fib(100)
 
-  # Bubble Sort Algothrim
-  # A loop will go through the entire array but start with the first two numbers and compare them. While going through the entire array, it will go to each index
-  # Sample array will compare the 1st & 2nd integers to see which one is greater within that array. If the 2nd integer is greater than the 1st integer it will reverse the order.
-  # Sample array of [8, 5, 2, 3] compare each pair of intergers at index 0 & 1 / index 1 & 2 / index 2 & 3 and so on.
-  # The first pass through if the 1st number is greater than the 2nd number then they will swap. So [5, 8, 2, 3].
-  # It will compare the other numbers so [5, 2, 8, 3]
-  # Then [5, 2, 3, 8]
-  # Keeps passing through until it knows it cannot swap anymore nunmbers.
+# --- Bubble Sort Algorithm ---
+# Loop through the array multiple times until variable "no swaps" is true
+  # Set no swaps to true
+  # Set i as index of current iteration
+  # Loop through the array while i+1 is less than the length of the array
+    # If value at index i of array is greater than value at index i+1 of array, then:
+      # substitute values at indexes i and i+1 with the reverse of those values (i+1 and i)
+      # set variable no swaps to false
+    # Increment i by 1
+# return array
 
+def bubble_sort(arr)
+  no_swaps = false
+  until no_swaps
+    no_swaps = true
+    i = 0
+    while (i+1) < arr.length
+      if arr[i] > arr[i+1]
+        swapped_values = arr.slice!(i,2)
+        arr.insert(i, swapped_values[1], swapped_values[0])
+        no_swaps = false
+      end
+      i += 1
+    end
+  end
+  return arr
+end
 
+test = [5, 32, 7, 7, 2, 0, 1, 80]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print bubble_sort(test)
