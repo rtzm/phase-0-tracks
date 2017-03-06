@@ -21,6 +21,14 @@ var longestPhrase = function(array_of_phrases) {
 	return array_of_phrases[indexOfLongest];
 };
 
+// KEY-VALUE MATCH
+// PSEUDOCODE
+
+// 
+
+
+// DRIVER CODE
+
 var array_of_phrases = ["long phrase","longest phrase","longer phrase"];
 
 console.log(longestPhrase(array_of_phrases));
@@ -28,3 +36,4 @@ console.log(longestPhrase(array_of_phrases));
 var array_of_more_phrases = ["a phrase", "an even longer phrase", "this phrase should win because it's the longest"];
 
 console.log(longestPhrase(array_of_more_phrases));
+
