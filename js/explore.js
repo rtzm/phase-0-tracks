@@ -6,7 +6,7 @@
 // return result string
 
 
-function reverse(initialString) {
+var reverse = function(initialString) {
 	var result = "";
 	for (var i = initialString.length; i >= 0; i--) {
 		result += initialString[i];
