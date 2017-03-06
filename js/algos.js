@@ -24,7 +24,30 @@ var longestPhrase = function(array_of_phrases) {
 // KEY-VALUE MATCH
 // PSEUDOCODE
 
-// 
+// Make array of properties in obj1 and array of properties in obj2
+// For each property in obj1 property array
+// 	- iterate through property names from obj2
+// 		- Check if this property from obj1 is found in obj2
+// 			- if yes, check if value of obj1.property matches value of obj2,property
+// 				- if yes, return true
+// 				- else return false
+// 			- else return false
+
+var keyValueMatch = function(obj1, obj2) {
+	var obj1Properties = Object.keys(obj1);
+	var obj2Properties = Object.keys(obj2);
+	for (var i = 0; i < obj1Properties.length; i++) {
+		for (var j = 0; j < obj2Properties.length; j++) {
+			if (obj1Properties[i] == obj2Properties[j]) {
+				if (obj1[obj1Properties[i]] == obj2[obj2Properties[j]]) {
+					return true;
+				};
+			};
+		};
+	};
+	return false;
+}
+
 
 
 // DRIVER CODE
@@ -37,3 +60,23 @@ var array_of_more_phrases = ["a phrase", "an even longer phrase", "this phrase s
 
 console.log(longestPhrase(array_of_more_phrases));
 
+var object1 = {
+	a: 1,
+	b: 2,
+	c: 3
+};
+
+var object2 = {
+	a: 4,
+	b: 5,
+	c: 6
+};
+
+var object3 = {
+	a: 1
+};
+
+console.log("Should return false: ");
+console.log(keyValueMatch(object1, object2));
+console.log("should return true: ");
+console.log(keyValueMatch(object1, object3));
