@@ -47,7 +47,39 @@ var keyValueMatch = function(obj1, obj2) {
 	};
 	return false;
 }
+ 
 
+// RANDOM WORD GENERATOR 
+// PSEUDOCODE
+ 
+// Initialize accumulator array to []
+// Initialize an array that contains the alphabet
+// Loop for the number of times that was passed to this function
+// - set accumulator string for this word to ""
+// - for a loop from 0 to 9, using i as incrementer
+//  - set next letter index variable to a random number between 0 and 25
+//  - add letter at this next letter index in the alphabet array to the result string
+//  - store chance-to-quit variable as random number between 1 and 10
+//  - if chance-to-quit variable is less than or equal to incrementer i, set i to i+10 to end loop early.
+// return accumulator array
+ 
+var randomWords = function(numberOfWords) {
+	var accArray = [];
+	var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+	while ((accArray.length + 1) < numberOfWords) {
+		var accWord = "";
+		for (var i = 0; i <= 9; i++) {
+			var nextLetterIndex = Math.round(Math.random() * 25);
+			accWord = accWord.concat(alphabet[nextLetterIndex]);
+			var chanceToQuit = Math.floor(Math.random() * 10) + 1;
+			if (chanceToQuit <= i) {
+				i += 10;
+			};
+		};
+		accArray.push(accWord);
+	};
+	return accArray;
+};
 
 
 // DRIVER CODE
@@ -80,3 +112,7 @@ console.log("Should return false: ");
 console.log(keyValueMatch(object1, object2));
 console.log("should return true: ");
 console.log(keyValueMatch(object1, object3));
+
+for (var k = 0; k < 10; k++) {
+	console.log(longestPhrase(randomWords(k+4)));
+}
