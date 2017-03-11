@@ -48,7 +48,7 @@ class VirusPredictor
     scale = 0.05 if scale < 0.05
     number_of_deaths = (@population * scale).floor
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak (scale = #{scale})"
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
@@ -56,19 +56,24 @@ class VirusPredictor
   def speed_of_spread() #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
 
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
-    end
+    # speed = 0.0
+    # if @population_density >= 200
+    #   speed += 0.5
+    # elsif @population_density >= 150
+    #   speed += 1
+    # elsif @population_density >= 100
+    #   speed += 1.5
+    # elsif @population_density >= 50
+    #   speed += 2
+    # else
+    #   speed += 2.5
+    # end
+
+    # refactored above
+    speed = (25.0 - ((@population_density / 10.0) - ((@population_density/10) % 5)).floor) / 10.0
+    speed = 2.5 if @population_density < 50
+    speed = 0.5 if @population_density > 200
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
