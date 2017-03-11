@@ -4,25 +4,29 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Allows the program to access external ruby file and import it into the current file.
+# Require_relative looks within the same directory/folder for the file. Require looks in the designated area for modules, etc. for your Ruby implementation.
 require_relative 'state_data'
 
 class VirusPredictor
 
+  # Initializes a new VirusPredictor object for a given state.
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # Calls private methods predicted_deaths and speed_of_spread for the object
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
+  # Makes the following code private to this object
   private
 
+  # Categorizes the scale of death based on population density and computes it, and then makes a print statement to display to user.
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +45,7 @@ class VirusPredictor
 
   end
 
+  # Categorizes the speed of spread based on population density, and then prints that in a sentence fragment.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
