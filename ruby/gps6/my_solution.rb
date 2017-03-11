@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge with: Tife.
+# We spent 1 hour on this challenge.
 
 # EXPLANATION OF require_relative
 # Allows the program to access external ruby file and import it into the current file.
@@ -30,12 +30,6 @@ class VirusPredictor
   def predicted_deaths()
     # predicted deaths is solely based on population density
 
-    scale = (((@population_density * 100) / 500).floor / 10).floor) / 10
-    scale = 0.4 if scale > 0.4
-    scale = 0.05 if scale < 0.05
-    number_of_deaths = (@population * scale).floor
-
-
     # if @population_density >= 200
     #   number_of_deaths = (@population * 0.4).floor
     # elsif @population_density >= 150
@@ -48,7 +42,13 @@ class VirusPredictor
     #   number_of_deaths = (@population * 0.05).floor
     # end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    # refactored above
+    scale = (@population_density / 50).floor / 10.0
+    scale = 0.4 if scale > 0.4
+    scale = 0.05 if scale < 0.05
+    number_of_deaths = (@population * scale).floor
+
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak (scale = #{scale})"
 
   end
 
