@@ -108,3 +108,19 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# One uses a string as the key (the outer hash, with keys as strings of state names) and the other uses symbols for :population_density and :population.
+
+# What does require_relative do? How is it different from require?
+# Allows the program to access external ruby file and import it into the current file.
+# Require_relative looks within the same directory/folder for the file. Require looks in the designated area for modules, etc. for your Ruby implementation.
+
+# What are some ways to iterate through a hash?
+# You can iterate through using any number of methods from the Enumerable module: each, map, inject, etc. Some of these return arrays, though, so watch out.
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# They were duplicates of the instance variables that were already contained within the method, so they weren't necessary. They would already be accessible within the other methods that were called within virus_effects.
+
+# What concept did you most solidify in this challenge?
+# This pairing really synced for me a sense of how you can use data structures from external sources and create methods that would work with those structures. I think that will be very useful when we start getting into databases.
