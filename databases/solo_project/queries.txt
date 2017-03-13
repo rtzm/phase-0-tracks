@@ -1,0 +1,110 @@
+RELEASE 2
+
+1. Display the information in one table (either table is fine).
+SELECT * FROM Resident;
+
+1|Carolina|true|123 W Fake Street|true|Organizer|2016-11-09|35
+2|Stephen|false|5982 S Fakery Street|false|||1
+3|Lawrence|true|1212 N Nowhere Blvd|false|||25
+4|Letitia|true|11348 S Nope Ave|true|Member|2017-01-28|20
+5|Johnny|true|8000 E YeahRight Parkway|false|||49
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+UPDATE Resident SET role = "Member", joinDate = "2017-03-12" WHERE id = 2;
+SELECT * FROM Resident WHERE id = 2;
+
+2|Stephen|false|5982 S Fakery Street|false|Member|2017-03-12|1
+
+3. Display the information in both tables using one query.
+SELECT * FROM Resident, Ward WHERE Resident.wardNum = Ward.num;
+
+1|Carolina|true|123 W Fake Street|true|Organizer|2016-11-09|35|35|Carlos Ramirez-Rosa|60.99
+2|Stephen|false|5982 S Fakery Street|false|Member|2017-03-12|1|1|Proco Joe Moreno|61.01
+3|Lawrence|true|1212 N Nowhere Blvd|false|||25|25|Daniel Solis|58.57
+4|Letitia|true|11348 S Nope Ave|true|Member|2017-01-28|20|20|Willie Cochran|36.89
+5|Johnny|true|8000 E YeahRight Parkway|false|||49|49|Joe Moore|56.69
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+SELECT name, alderman FROM Resident, Ward WHERE Resident.wardNum = Ward.num;
+
+Carolina|Carlos Ramirez-Rosa
+Stephen|Proco Joe Moreno
+Lawrence|Daniel Solis
+Letitia|Willie Cochran
+Johnny|Joe Moore
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+DELETE FROM Resident WHERE votedSanders = "false";
+SELECT * FROM Resident;
+
+1|Carolina|true|123 W Fake Street|true|Organizer|2016-11-09|35
+4|Letitia|true|11348 S Nope Ave|true|Member|2017-01-28|20
+
+
+RELEASE 3
+
+
+LEFT OUTER JOIN:
+
+SELECT *
+FROM Ward
+  LEFT JOIN Resident
+    ON wardNum = num
+ORDER BY num ASC;
+
+1|Proco Joe Moreno|61.01||||||||
+2|Brian Hopkins|45.19||||||||
+3|Pat Dowell|36.22||||||||
+4|Sophia King|41.87||||||||
+5|Leslie Hairston|43.24||||||||
+6|Roderick Sawyer|32.11||||||||
+7|Gregory Mitchell|32.58||||||||
+8|Michelle A. Harris|32.03||||||||
+9|Anthony Beale|32.31||||||||
+10|Susie Sadlowski Garza|49.82||||||||
+11|Patrick Daley Thompson|53.98||||||||
+12|George Cardenas|56.44||||||||
+13|Marty Quinn|50.25||||||||
+14|Edward M. Burke|57.03||||||||
+15|Raymond Lopez|47.04||||||||
+16|Toni Foulkes|34.82||||||||
+17|David Moore|33.5||||||||
+18|Derrick Curtis|40.22||||||||
+19|Matthew O'Shea|49.59||||||||
+20|Willie Cochran|36.89|4|Letitia|true|11348 S Nope Ave|true|Member|2017-01-28|20
+21|Howard Brookins Jr.|31.15||||||||
+22|Ricardo Muñoz|55.1||||||||
+23|Michael Zalewski|54.76||||||||
+24|Michael Scott, Jr.|33.6||||||||
+25|Daniel Solis|58.57||||||||
+26|Roberto Maldonado|58.46||||||||
+27|Walter Burnett, Jr.|38.92||||||||
+28|Jason Ervin|35.18||||||||
+29|Chris Taliaferro|34.31||||||||
+30|Ariel Reboyras|56.83||||||||
+31|Milly Santiago|52.98||||||||
+32|Scott Waguespack|55.26||||||||
+33|Deb Mell|59.87||||||||
+34|Carrie Austin|30.23||||||||
+35|Carlos Ramirez-Rosa|60.99|1|Carolina|true|123 W Fake Street|true|Organizer|2016-11-09|35
+36|Gilbert Villegas|51.2||||||||
+37|Emma Mitts|31.38||||||||
+38|Nicholas Sposato|52.68||||||||
+39|Margaret Laurino|52.63||||||||
+40|Patrick J. O'Connor|54.75||||||||
+41|Anthony Napolitano|51.06||||||||
+42|Brendan Reilly|38.91||||||||
+43|Michele Smith|41.45||||||||
+44|Thomas M. Tunney|46.99||||||||
+45|John Arena|54.85||||||||
+46|James Cappleman|48.14||||||||
+47|Ameya Pawar|55.63||||||||
+48|Harry Osterman|49.71||||||||
+49|Joe Moore|56.69||||||||
+50|Debra Silverstein|50.53||||||||
+
+FULL OUTER JOIN:
+
+SELECT * FROM Ward FULL OUTER JOIN Resident ON Ward.num = Resident.wardNum;
+
+Error: RIGHT and FULL OUTER JOINs are not currently supported
