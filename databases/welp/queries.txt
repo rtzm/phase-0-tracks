@@ -1,0 +1,52 @@
+ sqlite> SELECT * FROM reviews JOIN users ON user_id = users.id;
+
+1|4|great fish!|1|3|3|Denzel|George
+2|2|not great poses|2|2|2|Mandy|Kaling
+3|4|no, great poses!|2|1|1|Bradford|Pitt
+4|5|Janet knows her stuff!|3|2|2|Mandy|Kaling
+
+sqlite> SELECT * FROM reviews JOIN businesses ON business_id = businesses.id;
+1|4|great fish!|1|3|1|Sushi World
+2|2|not great poses|2|2|2|Lotus Yoga
+3|4|no, great poses!|2|1|2|Lotus Yoga
+4|5|Janet knows her stuff!|3|2|3|Plumbing by Janet
+
+sqlite> SELECT *
+   ...> FROM (SELECT *
+   ...>         FROM reviews JOIN users
+   ...>                 ON user_id = users.id) JOIN businesses
+   ...>         ON business_id = businesses.id;
+
+1|4|great fish!|1|3|3|Denzel|George|1|Sushi World
+2|2|not great poses|2|2|2|Mandy|Kaling|2|Lotus Yoga
+3|4|no, great poses!|2|1|1|Bradford|Pitt|2|Lotus Yoga
+4|5|Janet knows her stuff!|3|2|2|Mandy|Kaling|3|Plumbing by Janet
+
+sqlite> SELECT users.firstName AS firstName, users.lastName AS lastName, stars, comment, business_id
+   ...> FROM reviews JOIN users
+   ...> ON user_id = users.id;
+Denzel|George|4|great fish!|1
+Mandy|Kaling|2|not great poses|2
+Bradford|Pitt|4|no, great poses!|2
+Mandy|Kaling|5|Janet knows her stuff!|3
+
+sqlite> SELECT firstName, lastName, businesses.name, stars, comment
+		FROM (SELECT users.firstName, users.lastName, stars, comment, business_id
+			FROM reviews
+			JOIN users
+				ON user_id = users.id)
+		JOIN businesses ON business_id = businesses.id;
+Denzel|George|Sushi World|4|great fish!
+Mandy|Kaling|Lotus Yoga|2|not great poses
+Bradford|Pitt|Lotus Yoga|4|no, great poses!
+Mandy|Kaling|Plumbing by Janet|5|Janet knows her stuff!
+
+sqlite> SELECT firstName, lastName, businesses.name, stars, comment
+		FROM (SELECT users.firstName, users.lastName, stars, comment, business_id
+			FROM reviews
+			JOIN users
+				ON user_id = users.id)
+		JOIN businesses ON business_id = businesses.id
+   ...> WHERE businesses.id = 2;
+Mandy|Kaling|Lotus Yoga|2|not great poses
+Bradford|Pitt|Lotus Yoga|4|no, great poses!
