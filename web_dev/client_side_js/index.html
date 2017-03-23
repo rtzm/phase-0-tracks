@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div></div>
+  <button id='stop'>STOP</button>
+  <script type="text/javascript">
+  var createNewParagraph = function() {
+    var newParagraph = document.createElement('p');
+    newParagraph.textContent = "testing one two three..."
+    var div = document.getElementsByTagName('div')[0];
+    div.appendChild(newParagraph);
+  };
+  var interval = window.setInterval(createNewParagraph,3000);
+
+  var button = document.getElementById('stop');
+  button.addEventListener("click",function() {
+    window.clearInterval(interval)
+  });
+  </script>
+</body>
+</html>
