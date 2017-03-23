@@ -1,0 +1,9 @@
+body {
+	font-family: "Courier New", Courier, Monospace;
+}
+.cycling {
+	color: red;
+}
+span {
+	display: inline-block;
+}
